@@ -1,0 +1,110 @@
+html,
+body,
+div,
+span,
+p,
+h1,
+h2,
+h3,
+b,
+i,
+a,
+em,
+input,
+form,
+img,
+ul,
+li,
+dl,
+dt {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  font-style: normal;
+  box-sizing: border-box;
+	font-size: 0.26rem;
+}
+ul,
+li,
+ol {
+  list-style: none;
+	font-size: 0.26rem;
+}
+a {
+  text-decoration: none;
+	font-size: 0.26rem;
+}
+img {
+  display: inline-block;
+}
+#xiugai{
+	background: #eee;
+	height: 100vh;
+	/*display: none;*/
+}
+#xiugai .k_top{
+	background: #eee;
+	height: 0.85rem;
+}
+#xiugai .k_top .k_title{
+	height: 0.85rem;
+	float: left;
+	line-height: 0.85rem;
+	font-size: 0.3rem;
+	padding-left: 0.44rem;
+	background: url(../img/k_left.png) no-repeat 0.07rem center #eee;
+	background-size: 0.2rem 0.4rem;
+	color: #333;
+}
+#xiugai .k_top .k_bao{
+	height: 0.85rem;
+	float: right;
+	line-height: 0.85rem;
+	font-size: 0.3rem;
+	padding-right: 0.16rem;
+	background-size: 0.2rem 0.4rem;
+	color: #ff5600;
+}
+#xiugai .k_content{
+	background: #fff;
+}
+#xiugai .k_content .section1{
+	height: 0.85rem;
+	line-height: 0.85rem;
+	border-bottom: 1px solid #E3E3E3;
+}
+#xiugai .k_content .section1 .title{
+	color: #333333;
+	float: left;
+	line-height: 0.85rem;
+	width: 1.44rem;
+	padding-left: 0.16rem;
+}
+#xiugai .k_content .section1 .content{
+	color: #000;
+	float: left;
+	line-height: 0.85rem;
+}
+#xiugai .k_content .section1 .content2{
+	float: right;
+	color: #848484;
+	min-width: 0.4rem;
+	/*background: red;*/
+	padding-right: 0.16rem;
+}
+#xiugai .k_content .section2{
+	padding: 0.16rem;
+	height: 1.56rem;
+	color: #000;
+	
+}
+#xiugai .k_shan{
+	margin-top: 0.16rem;
+	background: #fff;
+	padding-left: 0.16rem;
+	color: #f83939;
+	height: 0.85rem;
+	line-height: 0.85rem;
+}
+

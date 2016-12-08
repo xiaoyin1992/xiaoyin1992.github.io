@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/guanli.css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.taobao.com/favicon.ico"/>
+    <script type="text/javascript">
+    	document.documentElement.style.fontSize=innerWidth/6.4+"px";
+    	onresize=function(){
+    		document.documentElement.style.fontSize=innerWidth/6.4+"px";
+    	}
+    </script>
+    <script type="text/javascript" src="js/style.js" ></script>
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js" ></script>
+</head>
+<body>
+	<div id="guanli">
+		<div class="shan_que">
+			<p>确认要删除该地址吗？</p>
+			<p><span id="k_quxiao">取消</span><span id="k_shanchu">删除</span></p>
+		</div>
+	<div class="k_title">
+		<div id="fan"></div>
+		管理收货地址
+	</div>
+	<div class="k_content">
+		<!--<div class="k_section1">
+			<div class="k_detail">
+				<p id="k_name">郑吉芳</p>
+				<p id="k_tel">13716140441</p>
+			</div>
+			<p id="k_address">北京北京市大兴区西红门北京市大兴区西红门镇供销学校</p>
+			<div class="k_menu">
+				<div class="k_left">
+				<input type="checkbox" value="" />
+				<span>默认地址</span>
+				</div>
+				<div class="k_right">
+				<p class="k_bian">编辑</p>
+				<p class="k_shan">删除</p>
+				</div>
+			</div>
+		</div>-->
+	</div>
+	<div class="k_bottom"><a href="add-address.html">添加新地址</a></div>
+	</div>
+	<script>
+	$("#fan").click(function(){
+		location.href="zilaio.html";
+	})
+	
+	if(localStorage.user_addr=="null"){
+		$(".k_content:eq(0)").html("");
+	}else{
+		var all_addr=document.getElementsByClassName("k_content")[0];
+		var k_section1=document.createElement("div");
+		all_addr.appendChild(k_section1);
+		k_section1.className="k_section1";
+		
+		var k_detail=document.createElement("div");
+		k_section1.appendChild(k_detail);
+		k_detail.className="k_detail";
+		
+		var k_name=document.createElement("p");
+		k_detail.appendChild(k_name);
+		k_name.id="k_name";
+		
+		var k_tel=document.createElement("p");
+		k_detail.appendChild(k_tel);
+		k_tel.id="k_tel";
+		
+		var k_address=document.createElement("p");
+		k_section1.appendChild(k_address);
+		k_address.id="k_address";
+		
+		var k_menu=document.createElement("div");
+		k_section1.appendChild(k_menu);
+		k_menu.className="k_menu";
+		
+		var k_left=document.createElement("div");
+		k_menu.appendChild(k_left);
+		k_left.className="k_left";
+		
+		var k_input=document.createElement("input");
+		k_left.appendChild(k_input);
+		k_input.type="checkbox";
+		
+		var k_span=document.createElement("span");
+		k_left.appendChild(k_span);
+		k_span.innerHTML="默认地址";
+		
+		var k_right=document.createElement("div");
+		k_menu.appendChild(k_right);
+		k_right.className="k_right";
+		
+		var k_bian=document.createElement("p");
+		k_right.appendChild(k_bian);
+		k_bian.className="k_bian";
+		k_bian.innerHTML="编辑";
+		
+		var k_shan=document.createElement("p");
+		k_right.appendChild(k_shan);
+		k_shan.className="k_shan";
+		k_shan.innerHTML="删除";
+		
+		var arr1=localStorage.user_addr.split(",");
+		k_name.innerHTML=arr1[0];
+		k_tel.innerHTML=arr1[1];
+		var arr2=arr1[2].split("-");
+		k_address.innerHTML=arr2[0]+arr2[1]+arr2[2];
+	}
+		
+		//删除地址
+		$("#k_shanchu").click(function(){
+			$.ajax({
+				type:"post",
+				url:"http://10.115.26.208/supermarket/data/user_update_addr.php",
+				data:{'user_addr':"null",'user_phone':localStorage.user_phone},
+				dataType:"jsonp",
+				jsonp:"callback",
+				jsonpCallback:"success_JsonpCallback",
+				success:function(e){
+					if(e=="success"){
+						localStorage.user_addr="null";
+						$(".k_content:eq(0)").html("");
+					}else{
+						alert(e)
+					}
+				}
+			})
+		})
+		
+	</script>
+</body>
+</html>

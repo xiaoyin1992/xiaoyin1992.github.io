@@ -1,0 +1,89 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 0.26rem;
+	color: #656565;
+	box-sizing: border-box;
+}
+.header{
+	width:100%;
+	height: 0.86rem;
+	display: flex;
+}
+.header .left{
+	flex: 1.5;
+	height: 100%;
+	color: #656565;
+	font-size: 0.28rem;
+	line-height: 0.86rem;
+	text-align: center;
+}
+.header .center{
+	flex: 7;
+}
+.header .center input{
+	display: block;
+	width: 100%;
+	height: 0.65rem;
+	margin-top: 0.1rem;
+	border: none;
+	background: #eee;
+	text-indent: 0.14rem;
+}
+.header .right{
+	flex: 1.5;
+	line-height: 0.86rem;
+	text-align: center;
+	color: #656565;
+}
+.zuijin{
+	min-height: 1.6rem;
+	width: 100%;
+	border-top: 1px solid #656565;
+	overflow: hidden;
+}
+.zuijin .title{
+	height: 0.8rem;
+	line-height: 0.8rem;
+	margin-left: 0.18rem;
+}
+.zuijin .content{
+	min-height: 0.8rem;
+	text-align: center;
+	margin-left: 0.18rem;
+}
+.zuijin .content p{
+	line-height: 0.55rem;
+	}
+.zuijin .content i{
+	display: block;
+	float: left;
+	padding: 0.15rem 0.2rem;
+	border: 1px solid #eee;
+	text-align: center;
+	font-style: inherit;
+	margin-right: 0.18rem;
+	margin-bottom: 0.18rem;
+	font-size: 0.18rem;
+}
+.hot{
+	margin-left: 0.18rem;
+}
+.hot .title{
+	line-height: 0.55rem;
+}
+.hot .content{
+	/*margin-right: 0.18rem;*/
+	overflow: hidden;
+}
+.hot .content i{
+	display: block;
+	float: left;
+	padding: 0.15rem 0.2rem;
+	border: 1px solid #eee;
+	text-align: center;
+	font-style: inherit;
+	margin-right: 0.18rem;
+	margin-bottom: 0.18rem;
+	font-size: 0.18rem;
+}

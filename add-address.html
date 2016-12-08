@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>添加新地址</title>
+	<meta charset="UTF-8">
+	<meta name="ali-app-title-content" content="e6a9"/>
+	<meta name="ali-app-title-color" content="#dd2727"/>
+	<meta name="aplus-terminal" content="1"/>
+	<meta name="apple-mobile-web-app-title" content="TMALL"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+	<meta name="spm-id" content="a3204.7152233">
+ 	<meta name="format-detection" content="telephone=no, address=no">
+ 	<link rel="shortcut icon" type="image/x-icon" href="https://www.taobao.com/favicon.ico"/>
+	<title>天猫超市 </title>
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="css/font.css"/>
+	<link rel="stylesheet" type="text/css" href="css/address.css"/>
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js" ></script>
+	<script type="text/javascript">
+		document.documentElement.style.fontSize = innerWidth / 16  +'px';
+		onresize = function(){
+			document.documentElement.style.fontSize = innerWidth / 16 +'px'
+		}
+	</script>
+</head>
+<body>
+	<yj>
+		<div class="top">
+			<span class="left">
+				<samp><</samp> 添加新地址
+			</span>
+			<a id="k_bao">保存</a>
+		</div>
+		<content>
+			<p>收货人:<input type="text" placeholder="请输入收货人姓名" id="shouhuoren"/></p>
+			<p>联系电话：<input type="tel" placeholder="请输入手机号" id="lianxi"/></p>
+			<p>所在地区<input type="text" placeholder="请输入所在地区" id="shi"/></p>
+			<p>街道<input type="text" placeholder="请输入所在街道" id="zhen"/></p>
+			<textarea value="详细地址" id="detail_addr"></textarea>
+			<p>设为默认地址 <input type="checkbox" style="float: right; margin-top: 5%; width: .6rem; height: .6rem;" /></p>
+		</content>
+	</yj>
+	<script>
+		document.getElementsByClassName("left")[0].onclick=function(){
+			window.location.href="address.html";
+		}
+		$("#k_bao").click(function(){
+			var addr=$("#shouhuoren").val()+","+$("#lianxi").val()+","+$("#shi").val()+"-"+$("#zhen").val()+"-"+$("#detail_addr").val();
+			$.ajax({
+				type:"post",
+				url:"http://10.115.26.208/supermarket/data/user_update_addr.php",
+				async:true,
+				dataType:'jsonp',
+				jsonp:'callback',
+				jsonpCallback:'success_JsonpCallback',
+				data:{'user_addr':addr,'user_phone':localStorage.user_phone},
+				success:function(e){
+					if(e=="success"){
+						localStorage.user_addr=addr;
+						window.location.href="address.html";
+					}else{
+						alert(e)
+					}
+				}
+			});
+		});
+	</script>
+</body>
+</html>
